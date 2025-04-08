@@ -1,13 +1,1708 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnTechzo - Premium Tech Education & Certification</title>
+    <meta name="description" content="LearnTechzo offers industry-leading tech courses with certifications, hands-on projects, and career support. Transform your career with our AI, Data Science, Web Development and Cyber Security courses.">
+    <meta name="keywords" content="tech courses, online learning, certification, AI, machine learning, data science, web development, cyber security, digital marketing, IoT">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://library.css.abdulhajees.in/stored-images/LT_logo.avif">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4361ee',
+                        secondary: '#3f37c9',
+                        accent: '#f72585',
+                        dark: '#1a1a2e',
+                        light: '#f8f9fa'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 8s infinite ease-in-out',
+                        'pulse': 'pulse 2s infinite',
+                        'slideInLeft': 'slideInLeft 1s ease-out forwards',
+                        'slideInRight': 'slideInRight 1s ease-out forwards',
+                        'fadeIn': 'fadeIn 1.5s ease-out forwards',
+                        'gradient': 'gradient 8s ease infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'wave': 'wave 2s linear infinite',
+                        'bounce': 'bounce 1s infinite',
+                        'spin-slow': 'spin 3s linear infinite',
+                        'zoom-in': 'zoomIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        blob: {
+                            '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+                            '25%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+                            '50%': { borderRadius: '50% 60% 30% 60% / 30% 60% 70% 40%' },
+                            '75%': { borderRadius: '60% 40% 60% 30% / 70% 30% 50% 60%' }
+                        },
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        gradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' }
+                        },
+                        tilt: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' }
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                            '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
+                        },
+                        zoomIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            color: #333333;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(248, 249, 250, 1) 100%);
+        }
+        
+        .scroll-indicator {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .category-card:hover .category-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(67, 97, 238, 0.2);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(247, 37, 133, 0.3);
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(247, 37, 133, 0.4);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .blob-element {
+            animation: blob 8s infinite ease-in-out;
+        }
+        
+        .pulse-element {
+            animation: pulse 2s infinite;
+        }
+        
+        .tilt-element {
+            animation: tilt 10s infinite linear;
+        }
+        
+        .wave-animation {
+            animation: wave 2s linear infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+        }
+        
+        .zoom-in-animation {
+            animation: zoomIn 0.5s ease-out forwards;
+        }
+        
+        .slide-up-animation {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        
+        .scroll-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(67, 97, 238, 0.5);
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(67, 97, 238, 0.7);
+        }
+        
+        .text-stroke {
+            -webkit-text-stroke: 1px var(--primary);
+            color: transparent;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .mapboxgl-map {
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .rating-stars {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .rating-stars::before {
+            content: '★★★★★';
+            color: #e2e8f0;
+        }
+        
+        .rating-stars::after {
+            content: '★★★★★';
+            color: #f59e0b;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        
+        .rating-4-5::after {
+            width: 90%;
+        }
+        
+        .rating-4-8::after {
+            width: 96%;
+        }
+        
+        .rating-4-2::after {
+            width: 84%;
+        }
+        
+        .rating-4-9::after {
+            width: 98%;
+        }
+        
+        .rating-4-7::after {
+            width: 94%;
+        }
+        
+        .rating-4-6::after {
+            width: 92%;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary);
+            opacity: 0.2;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+        }
+        
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--dark);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(248, 249, 250, 1) 100%);
+            margin-bottom: 16px;
+        }
+        
+        .feature-icon i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .course-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        
+        .course-tag.ai {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+        
+        .course-tag.data {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+        
+        .course-tag.security {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+        
+        .course-tag.web {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+        
+        .course-tag.marketing {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+        }
+        
+        .course-tag.iot {
+            background-color: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+        }
+        
+        .course-tag.cloud {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+        
+        .course-tag.blockchain {
+            background-color: rgba(5, 150, 105, 0.1);
+            color: #059669;
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .accordion-header {
+            padding: 16px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .floating-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-notification.show {
+            opacity: 1;
+            bottom: 30px;
+        }
+        
+        .floating-notification.success {
+            background-color: #10b981;
+        }
+        
+        .floating-notification.error {
+            background-color: #ef4444;
+        }
+        
+        .floating-notification.warning {
+            background-color: #f59e0b;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(248, 249, 250, 1) 100%);
+            }
+            
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <!-- Floating Notification -->
+    <div id="notification" class="floating-notification"></div>
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center">
+                        <img src="https://library.css.abdulhajees.in/stored-images/LT_logo.avif" alt="LearnTechzo Logo" class="h-10 md:h-12">
+                        <span class="ml-2 text-xl md:text-2xl font-bold text-dark"><span class="text-primary"></span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors active">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
+                    <a href="#courses" class="nav-link text-gray-700 hover:text-primary transition-colors">Courses</a>
+                    <a href="#features" class="nav-link text-gray-700 hover:text-primary transition-colors">Features</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-primary transition-colors">Testimonials</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    <button class="btn-primary text-white px-6 py-2 rounded-button cursor-pointer">Enroll Now</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menuButton" class="w-10 h-10 flex items-center justify-center cursor-pointer">
+                        <i class="ri-menu-line ri-xl text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-50">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-button transition-colors">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-button transition-colors">About</a>
+                <a href="#courses" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-button transition-colors">Courses</a>
+                <a href="#features" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-button transition-colors">Features</a>
+                <a href="#testimonials" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-button transition-colors">Testimonials</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-button transition-colors">Contact</a>
+                <button class="w-full mt-2 btn-primary text-white px-4 py-2 rounded-button cursor-pointer">Enroll Now</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full opacity-10 blob-element"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-accent rounded-full opacity-10 blob-element" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-secondary rounded-full opacity-10 blob-element" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0" data-aos="fade-right" data-aos-duration="800">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                        Transform Your Career with <span class="gradient-text">LearnTechzo</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        Master in-demand tech skills with our industry-leading courses. Get certified, build real projects, and launch your dream career with 1:1 mentorship from industry experts.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="btn-primary text-white px-8 py-3 rounded-button cursor-pointer hover-scale">
+                            Explore Courses
+                        </button>
+                        <button class="btn-secondary px-8 py-3 rounded-button cursor-pointer hover-scale">
+                            <div class="flex items-center">
+                                <i class="ri-play-circle-line ri-lg mr-2"></i>
+                                Watch Demo
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="mt-12 grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-primary">25+</h3>
+                            <p class="text-gray-600 text-sm">Professional Courses</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-primary">1.5K+</h3>
+                            <p class="text-gray-600 text-sm">Students Trained</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-primary">100%</h3>
+                            <p class="text-gray-600 text-sm">Placement Support</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="800">
+                    <div class="relative floating-element">
+                        <img src="https://public.readdy.ai/ai/img_res/74ef07a8dfe2ccd3b3497a568720603d.jpg" alt="Education Technology" class="w-full rounded-2xl shadow-xl hover-scale">
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary rounded-full opacity-20 blob-element"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-primary rounded-full opacity-20 blob-element"></div>
+                    </div>
+                    
+                    <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                                <i class="ri-award-fill ri-xl text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Certified Courses</h4>
+                                <p class="text-xs text-gray-500">Industry Recognized</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-1/4 -right-4 bg-white p-4 rounded-xl shadow-lg" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                                <i class="ri-briefcase-4-fill ri-xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Internship</h4>
+                                <p class="text-xs text-gray-500">Real-world Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Trusted By Section -->
+    <section class="py-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <p class="text-gray-500 text-sm uppercase tracking-wider">Trusted by leading companies</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="Microsoft" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png" alt="Apple" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png" alt="Google" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Infosys_logo.svg/2560px-Infosys_logo.svg.png" alt="Infosys" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 mb-10 lg:mb-0" data-aos="fade-right">
+                    <div class="relative">
+                        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=945,h=891,fit=crop,trim=243.5715935334873;0;135.3175519630485;0/d95K6LkvRDcv9M5q/45bea7ebd96e93c2ae304f792f5bb52a-AGB6jXxEr0Hza3Na.jpg" alt="About LearnTechzo" class="rounded-2xl shadow-xl w-full hover-scale">
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full opacity-10 blob-element"></div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        Why <span class="gradient-text">LearnTechzo</span> is Different
+                    </h2>
+                    <p class="text-gray-600 mb-8">
+                        LearnTechzo is not just another online learning platform. We're a career transformation ecosystem that combines cutting-edge curriculum, industry mentorship, hands-on projects, and career support to help you succeed in the tech industry.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="ri-checkbox-circle-fill text-primary ri-lg"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Industry-Driven Curriculum</h4>
+                                <p class="text-gray-600 text-sm">Our courses are designed with direct input from tech leaders to ensure you learn the most relevant skills.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="ri-checkbox-circle-fill text-primary ri-lg"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Project-Based Learning</h4>
+                                <p class="text-gray-600 text-sm">Build portfolio-worthy projects that solve real-world problems and demonstrate your skills to employers.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="ri-checkbox-circle-fill text-primary ri-lg"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">1:1 Mentorship</h4>
+                                <p class="text-gray-600 text-sm">Get personalized guidance from industry professionals throughout your learning journey.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-8 btn-primary text-white px-8 py-3 rounded-button cursor-pointer hover-scale">
+                        Learn More About Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Explore Our Course Categories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover the perfect course to advance your skills and career from our wide range of technical and professional categories.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/70df5579a0436b80ec8316618afdc2c8.jpg" alt="AI & ML" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">AI & Machine Learning</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/cd57d170cdf05a6f7c42df4f596573d6.jpg" alt="Data Science" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Data Science</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/f206a7ea9ab6293140dc404ad9231d0a.jpg" alt="Web Development" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Web Development</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/38cef098f8ff5b200e349e05e2b85371.jpg" alt="Cyber Security" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Cyber Security</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/d46bc3a273aaf57fee359fd508e4c9d8.jpg" alt="Digital Marketing" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Digital Marketing</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/088eb4dd9461bc5660722c1afa626e0c.jpg" alt="IoT" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">IoT</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/67fa06514087b862770d98cdf1542720.jpg" alt="Business Analytics" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Business Analytics</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+                
+                <div class="category-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center cursor-pointer">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/f381530438d9bd732a2d21a268e0c570.jpg" alt="Engineering" class="w-full category-icon">
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Engineering</h3>
+                    <p class="text-gray-500 text-sm mt-2"></p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-secondary px-8 py-3 rounded-button cursor-pointer hover-scale">
+                    View All Categories
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Learning Experience</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We combine the best of online learning with hands-on experience to give you a comprehensive education that prepares you for the real world.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon mx-auto">
+                        <i class="ri-user-star-fill"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 text-center">Expert Mentorship</h3>
+                    <p class="text-gray-600 text-center">Learn directly from industry professionals with years of experience in top tech companies.</p>
+                </div>
+                
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon mx-auto">
+                        <i class="ri-code-box-fill"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 text-center">Real-world Projects</h3>
+                    <p class="text-gray-600 text-center">Apply your knowledge with hands-on projects that solve real-world problems and build your portfolio.</p>
+                </div>
+                
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon mx-auto">
+                        <i class="ri-award-fill"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 text-center">Industry Certificates</h3>
+                    <p class="text-gray-600 text-center">Earn recognized certifications that validate your skills and boost your resume.</p>
+                </div>
+                
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon mx-auto">
+                        <i class="ri-briefcase-4-fill"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 text-center">Internship Program</h3>
+                    <p class="text-gray-600 text-center">Gain practical experience through our internship program with real companies.</p>
+                </div>
+                
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon mx-auto">
+                        <i class="ri-group-fill"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 text-center">Community Support</h3>
+                    <p class="text-gray-600 text-center">Join a vibrant community of learners and professionals for networking and collaboration.</p>
+                </div>
+                
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon mx-auto">
+                        <i class="ri-line-chart-fill"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-800 mb-3 text-center">Career Guidance</h3>
+                    <p class="text-gray-600 text-center">Get personalized career advice, resume reviews, and interview preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Courses Section -->
+    <section id="courses" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Courses</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our most popular courses designed to help you master in-demand skills and advance your career.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-md transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/7544f86ef7f96da8bfd0df7c073a4c1b.jpg" alt="Machine Learning with Python" class="w-full h-48 object-cover">
+                        <div class="course-badge bg-primary text-white">Bestseller</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="course-tag ai">AI & ML</span>
+                            <span class="text-xs text-gray-500">8 Weeks</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-3">Machine Learning with Python</h3>
+                        <p class="text-gray-600 text-sm mb-4">Master machine learning algorithms and implement them using Python libraries like Scikit-learn and TensorFlow.</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars rating-4-8 mr-2"></div>
+                            <span class="text-xs text-gray-500">4.8 (245 reviews)</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">₹7,999</span>
+                            <button class="btn-primary text-white px-4 py-2 rounded-button cursor-pointer hover-scale">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/f96a1585366685c9701a7ec7fbb0e217.jpg" alt="Data Science with Python" class="w-full h-48 object-cover">
+                        <div class="course-badge bg-green-500 text-white">New</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="course-tag data">Data Science</span>
+                            <span class="text-xs text-gray-500">8 Weeks</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-3">Data Science with Python</h3>
+                        <p class="text-gray-600 text-sm mb-4">Learn data analysis, visualization, and machine learning techniques to extract insights from complex datasets.</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars rating-4-5 mr-2"></div>
+                            <span class="text-xs text-gray-500">4.5 (178 reviews)</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">₹8,499</span>
+                            <button class="btn-primary text-white px-4 py-2 rounded-button cursor-pointer hover-scale">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-md transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/324c3d43cfd9a164f0017d4d3e30e008.jpg" alt="Cyber Security with Kali Linux" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="course-tag security">Cyber Security</span>
+                            <span class="text-xs text-gray-500">8 Weeks</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-3">Cyber Security with Kali Linux</h3>
+                        <p class="text-gray-600 text-sm mb-4">Develop ethical hacking skills and learn to protect systems from cyber threats using Kali Linux tools.</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars rating-4-9 mr-2"></div>
+                            <span class="text-xs text-gray-500">4.9 (312 reviews)</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">₹9,999</span>
+                            <button class="btn-primary text-white px-4 py-2 rounded-button cursor-pointer hover-scale">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 4 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-md transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/cd528c468218c443e595d670610cea4f.jpg" alt="Web Development" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="course-tag web">Web Dev</span>
+                            <span class="text-xs text-gray-500">8 Weeks</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-3">Full Stack Web Development</h3>
+                        <p class="text-gray-600 text-sm mb-4">Build responsive websites and web applications using modern frontend and backend technologies.</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars rating-4-7 mr-2"></div>
+                            <span class="text-xs text-gray-500">4.7 (289 reviews)</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">₹7,499</span>
+                            <button class="btn-primary text-white px-4 py-2 rounded-button cursor-pointer hover-scale">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 5 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-md transition-all" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/9caa4420bd1b70fe93ebc416f8e17ed2.jpg" alt="Digital Marketing" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="course-tag marketing">Marketing</span>
+                            <span class="text-xs text-gray-500">8 Weeks</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-3">Digital Marketing Mastery</h3>
+                        <p class="text-gray-600 text-sm mb-4">Learn SEO, SEM, social media marketing, content strategy, and analytics to drive business growth.</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars rating-4-2 mr-2"></div>
+                            <span class="text-xs text-gray-500">4.2 (156 reviews)</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">₹6,999</span>
+                            <button class="btn-primary text-white px-4 py-2 rounded-button cursor-pointer hover-scale">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 6 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-md transition-all" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/b49b6ee51eee5dd56b4f02d8dcf703ed.jpg" alt="IoT" class="w-full h-48 object-cover">
+                        <div class="course-badge bg-primary text-white">Trending</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="course-tag iot">IoT</span>
+                            <span class="text-xs text-gray-500">8 Weeks</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-3">Internet of Things (IoT)</h3>
+                        <p class="text-gray-600 text-sm mb-4">Design and develop connected devices and systems using sensors, microcontrollers, and cloud platforms.</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars rating-4-6 mr-2"></div>
+                            <span class="text-xs text-gray-500">4.6 (203 reviews)</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">₹8,999</span>
+                            <button class="btn-primary text-white px-4 py-2 rounded-button cursor-pointer hover-scale">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-secondary px-8 py-3 rounded-button cursor-pointer hover-scale">
+                    View All Courses
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-16 md:py-24 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2">25+</h3>
+                    <p class="text-white text-opacity-90">Professional Courses</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2">1.5K+</h3>
+                    <p class="text-white text-opacity-90">Students Trained</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2">50+</h3>
+                    <p class="text-white text-opacity-90">Expert Instructors</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2">98%</h3>
+                    <p class="text-white text-opacity-90">Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Students Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from our students who have transformed their careers through our courses.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl shadow-md transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rating-stars rating-4-8 mb-4"></div>
+                    <p class="text-gray-600 mb-6">"The courses offered by Learn Techzo have been a game-changer for my career. The flexibility and quality of instruction allowed me to upskill at my own pace while balancing my job. I’m now confidently applying my new knowledge in real-world scenarios"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=136,h=136,fit=crop,trim=47.46067415730337;181.16438356164383;387.59550561797755;126.02739726027397/d95K6LkvRDcv9M5q/whatsapp-image-2024-10-17-at-19.19.55-m7Vw8ZyMbLIVvzJk.jpeg" alt="Rahul Sharma" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Manjunath,</h4>
+                            <p class="text-xs text-gray-500">Marketing Professional</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rating-stars rating-4-9 mb-4"></div>
+                    <p class="text-gray-600 mb-6">"I enrolled in the live classes, and it was the best decision I’ve made for my professional growth. The instructors were not only experts in their fields but also approachable and always willing to help. I highly recommend Learn Techzo to anyone looking to advance their career"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=142,h=142,fit=crop,trim=15.019354838709678;40;195.25161290322578;27.5/d95K6LkvRDcv9M5q/picture2-Yg2WgwNPeWinz3XR.jpg" alt="Priya Patel" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Nivedhitha,</h4>
+                            <p class="text-xs text-gray-500">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl shadow-md transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rating-stars rating-4-7 mb-4"></div>
+                    <p class="text-gray-600 mb-6">"The mentorship program at Learn Techzo exceeded my expectations. My mentor provided personalized advice and helped me navigate a successful career transition. I couldn’t have done it without their support!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://public.readdy.ai/ai/img_res/436f8b473711a72d40ee9f6174b0c5eb.jpg" alt="Vikram Singh" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Gokul,</h4>
+                            <p class="text-xs text-gray-500">Career Transitioner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-12">
+                <div class="flex space-x-2">
+                    <button class="w-3 h-3 rounded-full bg-primary cursor-pointer"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-primary cursor-pointer"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-primary cursor-pointer"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find answers to common questions about our courses and learning platform.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md mb-4 overflow-hidden" data-aos="fade-up">
+                    <div class="accordion-header p-6 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-800">What is the duration of each course?</h3>
+                            <i class="ri-arrow-down-s-line accordion-icon text-gray-500"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-600">Most of our courses are designed to be completed in 8 weeks with a commitment of 10-15 hours per week. However, you can learn at your own pace as all course materials remain accessible even after completion.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md mb-4 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion-header p-6 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-800">Do you provide certificates after course completion?</h3>
+                            <i class="ri-arrow-down-s-line accordion-icon text-gray-500"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-600">Yes, upon successful completion of any course, you'll receive a verifiable digital certificate that you can share on LinkedIn and other professional networks. Some courses also offer additional industry-recognized certifications.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md mb-4 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="accordion-header p-6 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-800">What kind of support can I expect during the course?</h3>
+                            <i class="ri-arrow-down-s-line accordion-icon text-gray-500"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-600">You'll have access to multiple support channels including 1:1 mentorship sessions, community forums, live Q&A sessions, and email support. Our instructors and mentors are committed to helping you succeed.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md mb-4 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="accordion-header p-6 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-800">Can I get a refund if I'm not satisfied?</h3>
+                            <i class="ri-arrow-down-s-line accordion-icon text-gray-500"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-600">We offer a 14-day money-back guarantee for all our courses. If you're not satisfied with your learning experience within the first two weeks, you can request a full refund with no questions asked.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md mb-4 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="accordion-header p-6 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-800">Do you offer job placement assistance?</h3>
+                            <i class="ri-arrow-down-s-line accordion-icon text-gray-500"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-600">Yes, we provide comprehensive career support including resume reviews, interview preparation, and job placement assistance. We also have partnerships with several tech companies that hire directly from our talent pool.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-2/3 mb-6 md:mb-0" data-aos="fade-right">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Career?</h2>
+                    <p class="text-white text-opacity-90">Join thousands of students who have advanced their careers with LearnTechzo. Enroll today and take the first step towards a brighter future.</p>
+                </div>
+                <div data-aos="fade-left">
+                    <button class="bg-white text-primary px-8 py-3 rounded-button hover:bg-opacity-90 transition-all font-medium cursor-pointer hover-scale">
+                        Get Started Today
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about our courses? Contact us and our team will get back to you as soon as possible.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <form class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent input-field" placeholder="Your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent input-field" placeholder="Your email">
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent input-field" placeholder="Your phone number">
+                        </div>
+                        <div class="mb-6">
+                            <label for="course" class="block text-gray-700 text-sm font-medium mb-2">Interested Course</label>
+                            <div class="relative">
+                                <select id="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none input-field">
+                                    <option value="">Select a course</option>
+                                    <option value="ml">Machine Learning with Python</option>
+                                    <option value="ds">Data Science with Python</option>
+                                    <option value="cs">Cyber Security with Kali Linux</option>
+                                    <option value="web">Full Stack Web Development</option>
+                                    <option value="dm">Digital Marketing</option>
+                                    <option value="iot">Internet of Things (IoT)</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <i class="ri-arrow-down-s-line text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent input-field" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary text-white py-3 rounded-button hover-scale cursor-pointer">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+                        <h3 class="font-semibold text-xl mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mr-4">
+                                    <i class="ri-map-pin-line text-primary ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Address</h4>
+                                    <p class="text-gray-600">HSR Layout, 6th Sector, Bangalore, Karnataka, India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mr-4">
+                                    <i class="ri-phone-line text-primary ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+91 93534 65578</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mr-4">
+                                    <i class="ri-mail-line text-primary ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">support@learntechzo.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mr-4">
+                                    <i class="ri-time-line text-primary ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Working Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="font-semibold text-xl mb-6">Our Location</h3>
+                        <iframe
+                        src="https://www.google.com/maps?q=12.880476500397227,77.60987894232872&z=15&output=embed" width="100%" height="200" style="border:0;" allowfullscreen=""loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="https://library.css.abdulhajees.in/stored-images/LT_logo.avif" alt="LearnTechzo Logo" class="h-10" style="background-color: white; border-radius: 10%; padding: 3px;">
+                        <span class="ml-2 text-xl font-bold"><span class="text-primary"></span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Empowering careers through quality tech education since 2018.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Courses</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Machine Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Data Science</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cyber Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">IoT</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Refund Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Career</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 LearnTechzo. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="#" class="fixed bottom-8 right-8 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors z-50 cursor-pointer hover-scale" data-aos="fade-up" data-aos-delay="500">
+        <i class="ri-whatsapp-fill ri-2x text-white"></i>
+    </a>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-24 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors z-50 cursor-pointer hover-scale opacity-0">
+        <i class="ri-arrow-up-line text-white ri-xl"></i>
+    </button>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+    
+    <script>
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Scroll Indicator
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            scrollIndicator.style.width = progress + '%';
+            
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.style.opacity = '1';
+            } else {
+                backToTop.style.opacity = '0';
+            }
+        });
+        
+        // Back to Top Functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.querySelector('form');
+        const notification = document.getElementById('notification');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !message) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            showNotification('Thank you! Your message has been sent successfully.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        function showNotification(message, type) {
+            notification.textContent = message;
+            notification.className = `floating-notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.className = 'floating-notification';
+            }, 3000);
+        }
+        
+        // Accordion functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                const currentlyActive = document.querySelector('.accordion-item.active');
+                
+                if (currentlyActive && currentlyActive !== item) {
+                    currentlyActive.classList.remove('active');
+                    currentlyActive.querySelector('.accordion-content').style.maxHeight = null;
+                }
+                
+                item.classList.toggle('active');
+                const content = item.querySelector('.accordion-content');
+                
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        });
+        
+        // Initialize Map
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGVhcm50ZWNoem8iLCJhIjoiY2xzMnIyZXFsMDFtMzJrbXZ1NXdxbWx0ZyJ9.3Jt-Kz8jWgQDvFNcJwJqKw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v11',
+            center: [77.6369, 12.9716], // Bangalore coordinates
+            zoom: 12
+        });
+        
+        // Add marker for the location
+        map.on('load', function() {
+            new mapboxgl.Marker({ color: '#4361ee' })
+                .setLngLat([77.6369, 12.9716])
+                .addTo(map);
+                
+            // Add zoom controls
+            map.addControl(new mapboxgl.NavigationControl());
+        });
+        
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.scroll-hidden');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('scroll-show');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
 </html>
